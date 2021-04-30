@@ -1,0 +1,25 @@
+.card {
+  margin: 5px 5px;
+}
+.card img{
+  padding-top: 10px;
+width: 150px;
+height: 200px;
+
+}
+.price {
+  font-size: 30px;
+  font-weight: bold;
+  
+}
+.row {
+  padding-top: 10px;
+}
+.card-text {
+  height: 144px;
+  width: 245px;
+  overflow: hidden;
+}
+#navbarSupportedContent navbar-nav nav-item:nth-child(1) {
+margin-right: 12px;
+}

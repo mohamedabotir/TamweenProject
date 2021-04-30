@@ -1,0 +1,112 @@
+<link rel="stylesheet" href="/front-module/css/style.css">
+<link rel="stylesheet" href="/front-module/css/Ustyle.css">
+<link rel="stylesheet" href="/front-module/nav-main-info.css">
+
+<body>
+    <div class="logo">
+        <a></a>
+    </div>
+    <!-- Side-Bar -->
+    <div class="side-bar">
+        <a href="/users/dashboard"><i class="fa fa-home"></i></a>
+        <a href="/users/profile"><i class="fa fa-user-circle"></i></a>
+        <!--<a href="#"><i class="fa fa-shopping-bag"></i></a>-->
+        <a href="/users/cart"><i class="fa fa-shopping-cart"></i></a>
+    </div>
+    <!-- Cart -->
+    <div class="cart">
+        <div> {{cart}}</div>
+        
+            
+       
+        <div class="accordion" id="i">
+            <div class="card">
+                <div class="card-header" id="headingOne{{index}}">
+                    <h2 class="mb-0">
+                        <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
+                            data-target="#collapseOne{{index}}" aria-expanded="true" aria-controls="collapseOne{{index}}">
+                            السجل
+                        </button>
+                    </h2>
+                </div>
+{{#if user}}
+    <div id="collapseOne{{index}}" class="collapse show" aria-labelledby="headingOne{{index}}"
+                    data-parent="#i">
+                    <div class="card-body">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">المنتج</th>
+                                    <th scope="col">الكمية</th>
+                                    <th scope="col">السعر</th>
+                                    <th scope="col">التاريخ</th>
+                                    <th scope="col">المشتري</th>
+                                    <th scope="col">العنوان</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                   
+                                     {{#each cart.products as |v index|}}
+                                   
+                                          <tr>
+                                    <td>{{add @index}}</td>
+                                    <td>{{v.name}}</td>
+                                    <td>{{v.quantity}}</td>
+                                    <td>{{v.price}}</td>
+                                    <td>{{v.date}}</td>
+                                    <td>{{v.client}}</td>
+                                    <td>{{v.address}}</td>
+                                    </tr>
+                                     
+                                      
+                                    {{/each}}
+                                
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                {{else}}
+                <div id="collapseOne{{index}}" class="collapse show" aria-labelledby="headingOne{{index}}"
+                    data-parent="#i">
+                    <div class="card-body">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">المنتج</th>
+                                    <th scope="col">الكمية</th>
+                                    <th scope="col">السعر</th>
+                                    <th scope="col">التاريخ</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                   
+                                     {{#each cart.products as |v index|}}
+                                   
+                                          <tr>
+                                    <td>{{add @index}}</td>
+                                    <td>{{v.name}}</td>
+                                    <td>{{v.quantity}}</td>
+                                    <td>{{v.price}}</td>
+                                    <td>{{v.date}}</td>
+                                    </tr>
+                                     
+                                      
+                                    {{/each}}
+                                
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+{{/if}}
+                
+            </div>
+           
+        </div>
+ 
+    </div>
+    <script>
+      
+    </script>
+</body>

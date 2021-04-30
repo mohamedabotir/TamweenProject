@@ -1,0 +1,116 @@
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+  <a class="navbar-brand" href="/">Tamweenk</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="users/cart">Cart<span class="badge rounded-pill badge-primary">{{totalQuantity}}</span>
+</a>
+
+      </li>
+      <li class="nav-item dropdown navbar-nav login" >
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          
+        
+          User-Managenment
+        </a>
+        
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          {{#if AuthCheck}}
+           {{#if admin}}
+            <a class="dropdown-item" href="/products"><i class="fas fa-plus">اضافة منتج</i></a>
+            <a class="dropdown-item" href="users/createUser"><i class="fas fa-user-plus">اضافة عامل</i></a>
+
+         
+             <a class="dropdown-item" href="/users/profile"><i class="fas fa-user-circle">الملف الشخصي</i></a>  
+             <a class="dropdown-item" href="/users/logout"><i class="fas fa-sign-out-alt">تسجيل خروج</i></a>
+          {{/if}}
+          
+          {{else}}
+          <a class="dropdown-item" href="/users"> <i class="fas fa-sign-in-alt">تسجيل دخول</i></a>
+          
+          {{/if}}
+         
+            
+         {{#if user}}
+          <a class="dropdown-item" href="/products"><i class="fas fa-plus">اضافة منتج</i></a>
+          <a class="dropdown-item" href="/users/profile"><i class="fas fa-user-circle">الملف الشخصي</i></a>  
+          <a class="dropdown-item" href="/users/logout"><i class="fas fa-sign-out-alt">تسجيل خروج</i></a>
+
+         {{/if}}
+         {{#if client}}
+           <a class="dropdown-item" href="/users/profile"><i class="fas fa-user-circle">الملف الشخصي</i></a>  
+          <a class="dropdown-item" href="/users/logout"><i class="fas fa-sign-out-alt">تسجيل خروج</i></a>
+         {{/if}}
+          
+         
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav> 
+{{#each buyCheck}}
+    <div class="text-center alert alert-danger">{{this}}</div>
+
+{{/each}}
+<div class="container">
+{{#each products}}
+  <div class="row">
+    {{#each this}}
+       <div class="col-sm-4">
+    <div class="card" style="width: 18rem;">
+  <div class="item">
+  <div class="text-center">
+  <img src="images/{{this.imagepath}}" class="card-img-top" alt="Source unavailable please report">
+  </div>
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">{{this.name}}</h5>
+    <p class="card-text">{{this.information}}</p>
+    <div class="price float-left">{{this.price}} جنية</div>
+    <div>
+    <form action="addtocart/{{this._id}}/{{this.price}}/{{this.name}}" method="get">
+    {{#if ../../AuthCheck}}
+      <input type="text" name="quantity" placeholder="الكمية" class="form-control"/>
+      <input type="submit" value="شراء"class="btn btn-success float-right">
+      {{else}}
+      <button type="button" class="btn btn-success float-right" data-toggle="modal" data-target="#unloge">
+       شراء
+</button>
+  
+    {{/if}}
+    </form>
+    
+    </div>
+  </div>
+  </div>
+  </div>
+    {{/each}}
+  </div>
+{{/each}}
+</div>
+  <!-- Modal -->
+<div class="modal fade" id="unloge" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title alert alert-danger text-center" id="exampleModalCenterTitle">تحذير انت غير مسجل</h3>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" dir="ltr">
+       <h3>عميلنا العزيز لن تتمكن من اتمام عملية الشراء من دون تسجيل الدخول</h3>
+       برجاء تسجيل الدخول
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <a href="/users" class="btn btn-primary">تسجيل الدخول</a>
+      </div>
+    </div>
+  </div>
+</div>
+

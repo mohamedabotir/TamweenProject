@@ -1,0 +1,72 @@
+
+       <link rel="stylesheet" href="/front-module/css/style.css">
+        <link rel="stylesheet"  href="/front-module/css/Ustyle.css">
+        <link rel="stylesheet" href="/front-module/nav-main-info.css">
+{{# if status}}
+<body>
+	<!-- Main section -->
+	<section class="main">
+		<div class="logo">
+			<a href="#"></a>
+		</div>
+	    <!-- <div class="sidebox">
+			<div class="search">
+				<i class="fa fa-search"></i>
+				<input type="text" placeholder="البحث">
+			</div>
+		</div> -->
+		<div class="main-img">
+			<img src="/front-module/css/images/2.png" alt="">
+		</div>
+		<div class="main-text">
+			<h1>تعرف</h1>
+			<h2>على منتجاتنا</h2>
+			<a href="#" class="main-btn" claas ="main-btn">اضغط هنا</a>
+		</div>
+		<!-- Side-Bar -->
+		<div class="side-bar">
+			<a href="/"><i class="fa fa-home"></i></a>
+			<a href="profile"><i class="fa fa-user-circle"></i></a>
+			<a href="#" class="SB"><i class="fa fa-shopping-bag"></i></a>
+			<a href="/users/cart"><i class="fa fa-shopping-cart"></i></a>
+			<a href="/users/logout"><i class="fas fa-sign-out-alt"></i></a>
+			<div class="sub-menu">
+		    <a href="#">سلع مدعمة</a>
+            <a href="#">سلع غير مدعمة</a>
+		</div>
+		</div>
+		
+	</section>
+	<!-- Products Section -->
+	<section class="products">
+		<div class="p-heading">
+			<h3>بعض المنتجات</h3>
+		</div>
+		<div class="p-container">
+		    <div class="p-box">
+		        <img src="/front-module/css/images/Products/p1.jpg" alt=" ">
+		    </div>
+            <div class="p-box">
+		        <img src="/front-module/css/images/Products/p2.jpg" alt=" ">
+		    </div>
+            <div class="p-box">
+		        <img src="/front-module/css/images/Products/p3.jpg" alt=" ">
+		    </div>
+            <div class="p-box">
+		        <img src="/front-module/css/images/Products/p4.jpg" alt=" ">
+		    </div>
+            <div class="p-box">
+		        <img src="/front-module/css/images/Products/p5.jpg" alt=" ">
+		    </div>
+            <div class="p-box">
+		        <img src="/front-module/css/images/Products/p6.jpg" alt=" ">
+		    </div>
+		</div>
+	</section>
+   
+	
+</body>
+</html>
+{{ else}}
+you have no Access For this Page
+{{/ if}}
